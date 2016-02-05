@@ -37,48 +37,28 @@ message SparseHistogramSupportingData {
     repeated SparseHistogramEntry entries = 2;
 }
 
-message HdrHistogramSupportingData {
-    required bytes encoded = 1;
-}
-
 message HostIdentification {
     optional string host_name = 1;
     optional string cluster_name = 2;
-}
-
-message LegacyAggRecord {
-    required string service = 1;
-    required string metric = 2;
-    optional string statistic = 3;
-    optional string period = 4;
-    optional string period_start = 5;
-    optional double statistic_value = 6;
-    repeated double statistic_samples = 7 [packed=true];
-    optional int32  raw_sample_count = 8;
-}
-
-message AggregationRecord {
-    required string service = 1;
-    required string metric = 2;
-    required string statistic = 3;
-    required string period = 4;
-    required string period_start = 5;
-    required double statistic_value = 6;
-    repeated double samples = 7 [packed=true];
-    required int64  population_size = 8;
-    required string unit = 9;
+    optional string version = 3;
 }
 
 message StatisticSetRecord {
-    required string service = 1;
-    required string cluster = 2;
+    optional string service = 1;
+    optional string cluster = 2;
     required string metric = 3;
     required string period = 4;
     required string period_start = 5;
     repeated StatisticRecord statistics = 6;
     optional bool forward_host_data = 7 [default = false];
+    repeated DimensionEntry dimensions = 8;
 }
 
 message HeartbeatRecord {
     required string timestamp = 1;
+}
+
+message DimensionEntry {
+    required string key = 1;
+    required string value = 2;
 }
