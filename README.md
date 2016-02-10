@@ -16,6 +16,31 @@ Metrics Aggregator Protocol
 
 Defines the protocol between [Metrics Aggregator Daemon](https://github.com/ArpNetworking/metrics-aggregator-daemon) and [Metrics Cluster Aggregator](https://github.com/ArpNetworking/metrics-cluster-aggregator).
 
+Framing
+-------
+Since protobuf does not have a message framing system, a prefix message length and message type has been added to the protocol.
+
+Each message in the stream is prefixed with a 32-bit, big endian size (in bytes) of the message (including the size header). After the size comes a variable length message type.  Currently, only 1 and 2 byte types are used.  The message types are listed below.
+
+Code | Type
+-----|---------------------
+0x01 | HostIdentification
+0x03 | Heartbeat
+0x04 | StatisticsSet
+0x05 | SampleSupportingData
+
+Only SampleSupportingData currently has a subtype, which describes how to deserialize the supporting data.
+
+Type and Subtype Code | SubType
+----------------------|---------------------------------
+0x05 0x01             | Samples supporting data
+0x05 0x02             | Sparse histogram supporting data
+
+The full message format is:
+
+     | 4 byte header | 1 byte type | [ 1 byte subtype (optional) ] | n byte protobuf payload
+
+
 Building
 --------
 
