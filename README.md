@@ -38,7 +38,7 @@ Type and Subtype Code | SubType
 
 The full message format is:
 
-     | 4 byte header | 1 byte type | [ 1 byte subtype (optional) ] | n byte protobuf payload
+     | 4 byte size | 1 byte type | [ 1 byte subtype (optional) ] | n byte protobuf payload
 
 
 Building
