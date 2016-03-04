@@ -44,13 +44,13 @@ message HostIdentification {
 }
 
 message StatisticSetRecord {
+    reserved 7;
     optional string service = 1;
     optional string cluster = 2;
     required string metric = 3;
     required string period = 4;
     required string period_start = 5;
     repeated StatisticRecord statistics = 6;
-    optional bool forward_host_data = 7 [default = false];
     repeated DimensionEntry dimensions = 8;
 }
 
