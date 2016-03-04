@@ -68,10 +68,11 @@
 
   <properties>
     <!--Dependency versions-->
-    <protobuf.version>2.6.1</protobuf.version>
+    <protobuf.version>3.0.0</protobuf.version>
+    <protobuf.dependency.version>3.0.0-beta-2</protobuf.dependency.version>
 
     <!--Plugin versions-->
-    <protoc.jar.maven.plugin.version>3.0.0-a3</protoc.jar.maven.plugin.version>
+    <protoc.jar.maven.plugin.version>3.0.0-b2</protoc.jar.maven.plugin.version>
   </properties>
   <build>
     <plugins>
@@ -141,7 +142,7 @@
     <dependency>
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java</artifactId>
-      <version>${protobuf.version}</version>
+      <version>${protobuf.dependency.version}</version>
     </dependency>
   </dependencies>
 </project>
