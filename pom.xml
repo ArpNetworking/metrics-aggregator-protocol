@@ -69,10 +69,10 @@
   <properties>
     <!--Dependency versions-->
     <protobuf.version>3.0.0</protobuf.version>
-    <protobuf.dependency.version>3.0.0-beta-2</protobuf.dependency.version>
+    <protobuf.dependency.version>3.0.0</protobuf.dependency.version>
 
     <!--Plugin versions-->
-    <protoc.jar.maven.plugin.version>3.0.0-b2</protoc.jar.maven.plugin.version>
+    <protoc.jar.maven.plugin.version>3.0.0</protoc.jar.maven.plugin.version>
   </properties>
   <build>
     <plugins>
@@ -96,6 +96,15 @@
       </plugin>
 
       <!-- Project Specific Plugins -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <compilerArgs>
+            <arg>-Xlint:all</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>com.github.os72</groupId>
         <artifactId>protoc-jar-maven-plugin</artifactId>
