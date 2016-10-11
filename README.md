@@ -6,7 +6,7 @@ Metrics Aggregator Protocol
          alt="License: Apache 2">
 </a>
 <a href="https://travis-ci.org/ArpNetworking/metrics-aggregator-protocol/">
-    <img src="https://travis-ci.org/ArpNetworking/metrics-aggregator-protocol.png"
+    <img src="https://travis-ci.org/ArpNetworking/metrics-aggregator-protocol.png?branch=master"
          alt="Travis Build">
 </a>
 <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.arpnetworking.metrics%22%20a%3A%22metrics-aggregator-protocol%22">
