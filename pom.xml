@@ -29,7 +29,7 @@
   <name>Metrics Aggregator Protocol</name>
   <description>Protocol definition between Metrics Aggrgator Daemon and Metrics Cluster Aggregator.</description>
   <url>https://github.com/ArpNetworking/metrics-aggregator-protocol</url>
-  <version>1.0.4-SNAPSHOT</version>
+  <version>1.0.5-SNAPSHOT</version>
 
   <licenses>
     <license>
