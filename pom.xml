@@ -18,7 +18,7 @@
   <parent>
     <groupId>com.arpnetworking.build</groupId>
     <artifactId>arpnetworking-parent-pom</artifactId>
-    <version>1.1.7</version>
+    <version>1.1.10</version>
     <relativePath />
   </parent>
 
@@ -68,12 +68,12 @@
 
   <properties>
     <!--Dependency versions-->
-    <protobuf.version>3.0.0</protobuf.version>
-    <protobuf.dependency.version>3.6.0</protobuf.dependency.version>
+    <protobuf.version>3.6.1</protobuf.version>
+    <protoc.version>3.6.1</protoc.version>
 
     <!--Plugin versions-->
     <build.helper.maven.plugin.version>1.10</build.helper.maven.plugin.version>
-    <protoc.jar.maven.plugin.version>3.5.1.1</protoc.jar.maven.plugin.version>
+    <protoc.jar.maven.plugin.version>3.6.0.2</protoc.jar.maven.plugin.version>
   </properties>
   <build>
     <plugins>
@@ -89,23 +89,28 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <additionalparam>-Xdoclint:none</additionalparam>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>com.rimerosolutions.maven.plugins</groupId>
         <artifactId>wrapper-maven-plugin</artifactId>
         <inherited>false</inherited>
       </plugin>
-
-      <!-- Project Specific Plugins -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <compilerArgs>
-            <arg>-Xlint:all</arg>
+          <!-- TODO: The protobuf plugin generates redundant casts, remove the compilerArgs
+               once https://github.com/google/protobuf/issues/1816 is fixed -->
+          <compilerArgs combine.children="append">
+            <arg>-Xlint:-cast</arg>
           </compilerArgs>
         </configuration>
       </plugin>
+
+      <!-- Project Specific Plugins -->
       <plugin>
         <groupId>com.github.os72</groupId>
         <artifactId>protoc-jar-maven-plugin</artifactId>
@@ -117,7 +122,7 @@
               <goal>run</goal>
             </goals>
             <configuration>
-              <protocVersion>${protobuf.version}</protocVersion>
+              <protocArtifact>com.google.protobuf:protoc:${protoc.version}</protocArtifact>
               <includeDirectories>
                 <include>src/main/proto</include>
               </includeDirectories>
@@ -152,7 +157,7 @@
     <dependency>
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java</artifactId>
-      <version>${protobuf.dependency.version}</version>
+      <version>${protobuf.version}</version>
     </dependency>
   </dependencies>
 </project>
