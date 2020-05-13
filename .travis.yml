@@ -12,6 +12,6 @@ env:
 install: true
 before_script:
 - gpg --import arpnetworking.key
-- if [ \( -n "${TRAVIS_TAG}" \) -a  "${TRAVIS_PULL_REQUEST}" = "false" ]; then export TARGET="deploy -P release --settings settings.xml"; fi;
+- if [ \( -n "${TRAVIS_TAG}" \) -a  "${TRAVIS_PULL_REQUEST}" = "false" ]; then export TARGET="deploy -P release"; fi;
 script:
-- ./jdk-wrapper.sh ./mvnw clean ${TARGET} -U
+- ./jdk-wrapper.sh ./mvnw clean ${TARGET} --settings settings.xml -U -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
