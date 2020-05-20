@@ -51,6 +51,9 @@ message StatisticSetRecord {
     string metric = 3;
     string period = 4;
     string period_start = 5;
+    // Timestamp at which the earliest message that was aggregated into
+    // this StatisticSetRecord was recorded. Used to monitor pipeline
+    // latency.
     string client_minimum_request_time = 9;
     repeated StatisticRecord statistics = 6;
     map<string, string> dimensions = 8;
