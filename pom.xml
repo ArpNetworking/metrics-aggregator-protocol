@@ -89,25 +89,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <configuration>
-          <additionalparam>-Xdoclint:none</additionalparam>
-        </configuration>
       </plugin>
       <plugin>
         <groupId>com.rimerosolutions.maven.plugins</groupId>
         <artifactId>wrapper-maven-plugin</artifactId>
         <inherited>false</inherited>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <!-- TODO: The protobuf plugin generates redundant casts, remove the compilerArgs
-               once https://github.com/google/protobuf/issues/1816 is fixed -->
-          <compilerArgs combine.children="append">
-            <arg>-Xlint:-cast</arg>
-          </compilerArgs>
-        </configuration>
       </plugin>
 
       <!-- Project Specific Plugins -->
