@@ -74,6 +74,9 @@
     <!--Plugin versions-->
     <build.helper.maven.plugin.version>3.5.0</build.helper.maven.plugin.version>
     <protoc.jar.maven.plugin.version>3.11.4</protoc.jar.maven.plugin.version>
+
+    <!-- Spotbugs -->
+    <spotbugs.exclude>${project.basedir}/spotbugs.exclude.xml</spotbugs.exclude>
   </properties>
   <build>
     <plugins>
