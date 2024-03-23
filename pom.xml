@@ -68,8 +68,8 @@
 
   <properties>
     <!--Dependency versions-->
-    <protobuf.version>3.25.3</protobuf.version>
-    <protoc.version>3.25.2</protoc.version>
+    <protobuf.version>4.26.0</protobuf.version>
+    <protoc.version>4.26.0</protoc.version>
 
     <!--Plugin versions-->
     <build.helper.maven.plugin.version>3.5.0</build.helper.maven.plugin.version>
