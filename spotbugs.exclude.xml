@@ -61,6 +61,7 @@
      <Match>
          <Or>
             <Source name="~.*generated.*" />
+            <Class name="~.*\.protocol\.Messages\$.*" />
          </Or>
      </Match>
 </FindBugsFilter>
