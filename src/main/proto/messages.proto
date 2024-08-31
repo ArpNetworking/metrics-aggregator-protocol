@@ -36,6 +36,9 @@ message SparseHistogramEntry {
 message SparseHistogramSupportingData {
     string unit = 1;
     repeated SparseHistogramEntry entries = 2;
+    // This is actually precision - 1. Since protobuf defaults to 0, we need
+    // the 0 to mean "default" and 1 mean "truncate the entire mantissa (0 bits of mantissa)"
+    uint32 precision = 3;
 }
 
 message HostIdentification {
