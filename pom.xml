@@ -68,7 +68,7 @@
 
   <properties>
     <!--Dependency versions-->
-    <protobuf.version>4.32.1</protobuf.version>
+    <protobuf.version>4.33.0</protobuf.version>
     <protoc.version>4.31.1</protoc.version>
 
     <!--Plugin versions-->
